@@ -127,7 +127,11 @@ CREATE TABLE seguimiento_pedido (
 -- PRODUCTO 
 SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod); -- JENS 
 SELECT p.nombre_prod, d.porcentaje_desc, d.fecha_inicio_desc, d.fecha_fin_desc FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod); -- JENS
-SELECT p.nombre_prod, p.descripcion_prod, p.precio_prod, p.precio_prod*d.procentaje_desc AS precio_final, p.stock_prod, d.porcentaje_desc, v.nombre_ven, va.id_usuario, u.nombre_usuario, va.puntuacion, va.`reseña` FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod ) INNER JOIN vendedor v ON (v.id_ven = p.id_ven) INNER JOIN valoracion va ON (va.id_prod = p.id_prod) INNER JOIN usuario u ON (u.id_usuario = va.id_usuario); -- SANTIAGO
+SELECT p.nombre_prod, p.descripcion_prod, p.precio_prod, p.precio_prod * d.porcentaje_desc AS precio_final, p.stock_prod, d.porcentaje_desc, v.nombre_ven, va.id_usuario, u.nombre_usuario, va.puntuacion, va.reseña FROM producto p
+																																																																							INNER JOIN descuento d ON d.id_prod = p.id_prod
+																																																																							INNER JOIN vendedor v ON v.id_ven = p.id_ven
+																																																																							INNER JOIN valoracion va ON va.id_prod = p.id_prod
+																																																																							INNER JOIN usuario u ON u.id_usuario = va.id_usuario; -- SANTIAGO
 SELECT * FROM producto p WHERE (p.nombre_prod = ?); -- SANTIAGO
 -- VENDEDOR
 SELECT * FROM vendedor; -- SANTIAGO 
