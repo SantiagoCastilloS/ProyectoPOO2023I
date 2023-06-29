@@ -15,5 +15,4 @@ public class ProductoController {
     public RespuestaProducto mostrarproducto(){
         return new RespuestaProducto (mostrarProductoService.mostrarproducto());
     }
-
 }

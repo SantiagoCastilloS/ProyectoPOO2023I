@@ -128,14 +128,10 @@ MODIFY COLUMN descripcion_seguimiento VARCHAR(100);
 -- PRODUCTO 
 SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod); -- JENS 
 SELECT p.nombre_prod, d.porcentaje_desc, d.fecha_inicio_desc, d.fecha_fin_desc FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod); -- JENS
-SELECT p.nombre_prod, p.descripcion_prod, p.precio_prod, p.precio_prod * d.porcentaje_desc AS precio_final, p.stock_prod, d.porcentaje_desc, v.nombre_ven, va.id_usuario, u.nombre_usuario, va.puntuacion, va.reseña FROM producto p
-																																																																							INNER JOIN descuento d ON d.id_prod = p.id_prod
-																																																																							INNER JOIN vendedor v ON v.id_ven = p.id_ven
-																																																																							INNER JOIN valoracion va ON va.id_prod = p.id_prod
-																																																																							INNER JOIN usuario u ON u.id_usuario = va.id_usuario; -- SANTIAGO
+SELECT p.id_prod, p.nombre_prod, p.descripcion_prod, p.stock_prod, p.precio_prod, d.porcentaje_desc, p.precio_prod * d.porcentaje_desc AS precio_final, v.nombre_ven FROM producto p INNER JOIN descuento d ON d.id_prod = p.id_prod INNER JOIN vendedor v ON v.id_ven = p.id_ven; -- SANTIAGO (hecho)
 SELECT * FROM producto p WHERE (p.nombre_prod = ?); -- SANTIAGO
 -- VENDEDOR
-SELECT * FROM vendedor; -- SANTIAGO 
+SELECT * FROM vendedor; -- SANTIAGO ()
 -- USUARIO
 INSERT INTO usuario VALUES (?,?,?,?,?,?); -- SANTIAGO
 SELECT u.nombre_usuario, pr.nombre_prod, pr.precio_prod, dc.cantidad, p.fecha_creacion_ped 'fecha_pedido', p.hora_creacion_ped 'hora_pedido', te.nombre_envio, sp.estado_seguimiento 'estado_seguimiento' FROM usuario u INNER JOIN carrito c ON (u.id_usuario = c.id_usuario) INNER JOIN detalle_carrito dc ON (dc.id_carrito = dc.id_carrito) INNER JOIN producto pr ON (dc.id_prod = pr.id_prod) INNER JOIN pedido p ON (u.id_usuario = p.id_usuario ) INNER JOIN pago pa ON (p.id_pedido = pa.id_pedido) INNER JOIN envio en ON (p.id_envio = en.id_envio) INNER JOIN tipo_envio te ON (en.id_tipo_envio = te.id_tipo_envio) INNER JOIN seguimiento_pedido sp ON (sp.id_pedido = p.id_pedido) WHERE (u.nombre_usuario = ?); -- RODRIGO
@@ -154,8 +150,8 @@ INSERT INTO pago VALUES (?,?,?,?,?,?,?); -- EDWIN
 SELECT u.nombre_usuario, pa.marca_tarjeta, pa.nro_tarjeta, pa.cvv_tarjeta, pa.fechaexp_tarjeta FROM usuario u inner join pedido p ON (p.id_usuario = u.id_usuario) INNER JOIN pago pa ON (p.id_pedido = pa.id_pedido ) WHERE (u.nombre_usuario = ?); -- EDWIN
 -- SEGUIMIENTO
 SELECT u.nombre_usuario, pro.nombre_prod, dc.cantidad, p.estado_pedido, sp.estado_seguimiento, sp.fecha_cambio_estado, sp.hora_cambio_estado, sp.descripcion_seguimiento FROM usuario u inner join pedido p ON (p.id_usuario = u.id_usuario) INNER JOIN carrito c ON (u.id_usuario = c.id_usuario) INNER JOIN detalle_carrito dc ON (dc.id_carrito = c.id_carrito)INNER JOIN producto pro ON (pro.id_prod = dc.id_prod) INNER JOIN seguimiento_pedido sp ON (sp.id_pedido = p.id_pedido ) WHERE (u.nombre_usuario = ?); -- EDWIN
-
-
+-- VALORACION
+INSERT INTO valoracion VALUES (?,?,?,?,?);
 
 
 -- INSERCION
