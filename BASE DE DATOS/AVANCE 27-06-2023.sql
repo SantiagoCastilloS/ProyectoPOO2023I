@@ -195,11 +195,21 @@ INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (2,'0','24/05/2023','22:43','el producto ya se entrego',2);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (3,'0','01/06/2023','19:54','el producto ya se entrego',3);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (4,'1','04/06/2023','20:00','el producto esta en camino, ya se encuentra en su ciudad',4);
-INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (5,'1','28/05/2023','19:54','el producto ya esta en la tienda, el comprador aun no lo recoje',5);
-INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (6,'1','29/05/2023','20:10','el prodructo aun esta en la tienda, el coprador aun no lo recoje',6);
+INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (5,'1','28/05/2023','19:54','el producto ya esta en la tienda, el comprador aun no lo recoge',5);
+INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (6,'1','29/05/2023','20:10','el prodructo aun esta en la tienda, el coprador aun no lo recoge',6);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (7,'0','02/06/2023','13:23','el producto ya se entrego',7);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (8,'1','05/06/2023','14:30','el producto esta en camino, ya se encuentra en su ciudad',8);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (9,'0','01/06/2023','15:36','el producto ya se entrego',9);
 INSERT INTO seguimiento_pedido (id_seguimiento_pedido, estado_seguimiento, fecha_cambio_estado, hora_cambio_estado, descripcion_seguimiento, id_pedido) VALUES (10,'1','06/06/2023','15:30','el producto esta en camino, ya se encuentra en su país',10);
-
+-- datos de tabla de pago
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (1,'American Express','1542534891','322','01/02/2025',1000.00,1);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (2,'American Express','1542534891','322','01/02/2025',1000.00,2);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (3,'Mastercard','2015486031','644','01/08/2026',1200.00,3);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (4,'Mastercard','2015486031','644','01/08/2026',1200.00,4);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (5,'Discover','2015203649','159','01/11/2024',900.00,5);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (6,'Discover','2015203649','159','01/11/2024',900.00,6);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (7,'Visa','1542698730','655','01/12/2023',900.00,7);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (8,'Visa','1542698730','655','01/12/2023',900.00,8);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (9,'American Express','2254896314','122','01/03/2028',1300.00,9);
+INSERT INTO pago (id_pago, marca_tarjeta, nro_tarjeta, cvv_tarjeta, fechaexp_tarjeta, saldo_tarjeta, id_pedido) VALUES (10,'American Express','2254896314','122','01/03/2028',1300.00,10);
 
