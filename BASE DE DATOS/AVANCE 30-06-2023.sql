@@ -81,7 +81,7 @@ CREATE TABLE tipo_envio (
 	costo_envio NUMERIC (4,2),
 	descripcion_envio VARCHAR (300)
 );
-ALTER TABLE tipo_envio MODIFY COLUMN descripcion_envio VARCHAR (300);
+
 CREATE TABLE envio (
 	id_envio NUMERIC (4) PRIMARY KEY,
 	ciudad VARCHAR (30),
@@ -123,8 +123,7 @@ CREATE TABLE seguimiento_pedido (
 	id_pedido NUMERIC (4),
 	FOREIGN KEY (id_pedido) REFERENCES pedido (id_pedido)
 );
-ALTER TABLE seguimiento_pedido
-MODIFY COLUMN descripcion_seguimiento VARCHAR(100);
+
 -- PRODUCTO 
 SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod); -- JENS 
 SELECT p.nombre_prod, d.porcentaje_desc, d.fecha_inicio_desc, d.fecha_fin_desc FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod); -- JENS
@@ -214,7 +213,7 @@ INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefon
 INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefono_ven, email_ven, valoracion_ven, nroventas) VALUES(0002,'FreshFridge','Venta de refrigeradoras, disponible 5 horas','Av. Aviación',972747923,'beto@hotmail.com',4,1200);
 INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefono_ven, email_ven, valoracion_ven, nroventas) VALUES(0003,'AudioVerse','Venta de audífonos, disponible 15 horas','Av. La Marina',9750264504,'samuel@gmail.com',9,2000);
 INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefono_ven, email_ven, valoracion_ven, nroventas) VALUES(0004,'MobileZone','Venta de celulares, disponible 12 horas','Av. Elmer Faucett',965025857,'ale.32332@gmail.com',5,1300);
-INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefono_ven, email_ven, valoracion_ven, nroventas) VALUES(0005,'TechHaven','Venta de harware, disponible 18 horas',,'Av. Aviación',983073458,'nest7748@outlook.com',8,2500);
+INSERT INTO vendedor(id_ven, nombre_ven, descripcion_ven, direccion_ven, telefono_ven, email_ven, valoracion_ven, nroventas) VALUES(0005,'TechHaven','Venta de harware, disponible 18 horas','Av. Aviación',983073458,'nest7748@outlook.com',8,2500);
 -- categoria
 INSERT INTO categoria(id_categ, nombre_categ, descripcion_categ) VALUES (0001,'Electrodomésticos', 'Aparatos electrónico que ayudarán para las funciones en el hogar');
 INSERT INTO categoria(id_categ, nombre_categ, descripcion_categ) VALUES (0002,'Refrigeradoras','Puedes almacenar tus alimentos');
@@ -237,8 +236,8 @@ INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_
 INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0011,'Motorola','Motorola Moto E30 32GB 2GB GRIS', 5900, 550 ,0004, 0002); #-27%
 INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0012,'Honor','Smartphone HONOR MAGIC 5 LITE 5G 6+128GB', 1500, 750 ,0004, 0002); #-13%
 
-INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0013,'Tarjeta Grafica', 'Tarjeta de video ASUS NVIDIA GeForce RTX 3080 Ti, 12GB GDDR6X, PCI-E',14700 , 50 ,0005, 0004);
-INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0014,'Laptop', 'Laptop Acer Aspire 3 AMD Ryzen 5 Serie 7520U 8GB RAM 256GB SSD 15.6"',2600 , 100 ,0005, 0004);
+INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0013,'Tarjeta Grafica', 'Tarjeta de video ASUS NVIDIA GeForce RTX 3080 Ti, 12GB GDDR6X, PCI-E',14700 , 50 ,5, 0004);
+INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0014,'Laptop', 'Laptop Acer Aspire 3 AMD Ryzen 5 Serie 7520U 8GB RAM 256GB SSD 15.6"',2600 , 100 ,5, 0004);
 INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0015,'Monitor', 'Monitor TEROS 21.5 75hz IPS FULL HD 5MS HDMI VGA Monitor GAMING GAMER',699 , 92 ,0005, 0004);
 INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0016,'Teclado mecanico', 'Teclado Razer Blackwidow V3 Tenkeyless Mechanical español',475 , 120 ,0005, 0004);
 INSERT INTO producto(id_prod, nombre_prod, descripcion_prod, precio_prod, stock_prod, id_ven, id_categ) VALUES (0017,'Impresora', 'IMPRESORA MULTIFUNCIONAL EPSON ECOTANK L5590 USBLANWI-FI',1999 , 70 ,0005, 0004);
@@ -318,4 +317,20 @@ INSERT INTO valoracion VALUES (28,5,'"Portátil y versátil, perfecta para viaje
 INSERT INTO valoracion VALUES (29,4,'"Buen soporte de software y controladores actualizados"',4,13);
 INSERT INTO valoracion VALUES (30,5,'"Batería de larga duración, puedo trabajar todo el día sin problemas"',7,14);
 -- carrito
-INSERT INTO carrito VALUES (1,1,1,1,1);
+INSERT INTO carrito VALUES (1,'24/05/2023','10:30','1',1);
+INSERT INTO carrito VALUES (2,'24/05/2023','10:40','1',1);
+INSERT INTO carrito VALUES (3,'26/05/2023','21:30','0',2);
+INSERT INTO carrito VALUES (4,'01/06/2023','15:30','1',2);
+INSERT INTO carrito VALUES (5,'28/05/2023','19:50','0',3);
+INSERT INTO carrito VALUES (6,'29/05/2023','20:00','0',3);
+INSERT INTO carrito VALUES (7,'26/05/2023','21:50','1',4);
+INSERT INTO carrito VALUES (8,'28/05/2023','09:30','1',4);
+INSERT INTO carrito VALUES (9,'27/05/2023','13:00','0',5);
+INSERT INTO carrito VALUES (10,'29/05/2023','15:30','1',5);
+-- detalle carrito
+INSERT INTO detalle_carrito VALUES (1,1,1,);
+INSERT INTO detalle_carrito VALUES (2,1,2,);
+INSERT INTO detalle_carrito VALUES (3,1,4,);
+INSERT INTO detalle_carrito VALUES (4,1,7,);
+INSERT INTO detalle_carrito VALUES (5,1,8,);
+INSERT INTO detalle_carrito VALUES (6,1,10,);
