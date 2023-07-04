@@ -10,8 +10,8 @@ public class DetalleUsuario {
     private String nombreProd;
     private float precioProd;
     private int cantidad;
-    private String fechaCreacionPed;
-    private String horaCreacionPed;
+    private char fechaCreacionPed;
+    private char horaCreacionPed;
     private String nombreEnvio;
     private char estadoSeguimiento;
 }
