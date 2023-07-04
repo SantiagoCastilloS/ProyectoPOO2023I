@@ -40,7 +40,7 @@ public class DetalleUsuarioDaoImp implements DetalleUsuarioDao{
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()){
-              DetalleUsuario detalleUsuario = new DetalleUsuario(rs.getString("nombre_usuario"),rs.getString("nombre_prod"),rs.getFloat("precio_prod"),rs.getInt("cantidad"),rs.getChar("fecha_creacion_ped"),rs.getChar("hora_creacion_ped"),rs.getString("nombre_envio"),rs.getChar("estado_seguimiento"));
+              DetalleUsuario detalleUsuario = new DetalleUsuario(rs.getString("nombre_usuario"),rs.getString("nombre_prod"),rs.getFloat("precio_prod"),rs.getInt("cantidad"),rs.getString("fecha_creacion_ped"),rs.getString("hora_creacion_ped"),rs.getString("nombre_envio"),rs.getString("estado_seguimiento"));
               detalleUsuarios.add(detalleUsuario);
             }
             st.close();
