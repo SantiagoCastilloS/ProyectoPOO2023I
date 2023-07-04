@@ -1,0 +1,20 @@
+<!-- PRODUCTO ID: 1-->
+<div class="container-full p-4">
+  <div class="flex justify-center">
+    <article *ngFor="let item of lista; let indice=index;">
+      <div class="flex flex-row-reverse">
+        <span class="bg-blue-700 text-red-600 font-bold">-15%</span>
+      </div>
+      <div>
+        <img [src]="item."  class="h-80 margen img">
+      </div>
+      <div class="text-gray-500 text-center text-2xl font-extrabold">SAMSUNG</div>
+      <div class="text text-center text-2xl font-semibold">Refrigeradora Samsung 361L No Frost Rt35K5930S8 Plata</div>
+      <div class="text-center">
+        <span class="text-red-600 font-bold">S/.1675</span>
+        <br>
+        <span class="text-gray-400 font-extralight line-through">S/.1950</span>
+      </div>
+    </article>
+  </div>
+</div>
