@@ -3,7 +3,7 @@ package uni.edu.pe.appventas.dao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-import uni.edu.pe.appventas.dto.Categoria;
+import uni.edu.pe.appventas.dto.Descuento;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class CategoriaDaoImp implements CategoriaDao{
+public class DescuentoDaoImp implements DescuentoDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     private Connection connection;
@@ -33,16 +33,17 @@ public class CategoriaDaoImp implements CategoriaDao{
     }
 
     @Override
-    public List<Categoria> mostrarcategoria() {
-        List<Categoria> categorias = new ArrayList<>();
+    public List<Descuento> mostrardescuento() {
+        List<Descuento> descuentos = new ArrayList<>();
         try{
             obtConeccion();
-            String sql = "SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod)";
+            String sql = "SELECT p.nombre_prod, d.porcentaje_desc, d.fecha_inicio_desc, d.fecha_fin_desc FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod)";
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()){
-                Categoria categoria = new Categoria(rs.getString("nombre_categ"),rs.getInt("id_categ"),rs.getInt("id_prod"));
-                categorias.add(categoria);
+                Descuento descuento = new Descuento(rs.getString("nombre_prod"), rs.getFloat("porcentaje_desc"), rs.getString("fecha_inicio_desc"), rs.getString("fecha_fin_desc"),  rs.getInt("id_prod"));
+
+                descuentos.add(descuento);
             }
             st.close();
             rs.close();
@@ -50,6 +51,6 @@ public class CategoriaDaoImp implements CategoriaDao{
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return categorias;
+        return descuentos;
     }
 }

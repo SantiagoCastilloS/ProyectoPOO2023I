@@ -125,7 +125,7 @@ CREATE TABLE seguimiento_pedido (
 );
 
 -- PRODUCTO 
-SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod); -- JENS 
+SELECT c.nombre_categ FROM categoria c INNER JOIN producto p ON (c.id_categ = p.id_prod); -- JENS
 SELECT p.nombre_prod, d.porcentaje_desc, d.fecha_inicio_desc, d.fecha_fin_desc FROM producto p INNER JOIN descuento d ON (d.id_prod = p.id_prod); -- JENS
 SELECT p.id_prod, p.nombre_prod, p.descripcion_prod, p.stock_prod, p.precio_prod, d.porcentaje_desc, p.precio_prod - p.precio_prod * d.porcentaje_desc AS precio_final, v.nombre_ven FROM producto p INNER JOIN descuento d ON d.id_prod = p.id_prod INNER JOIN vendedor v ON v.id_ven = p.id_ven; -- SANTIAGO (hecho)
 SELECT * FROM producto p WHERE (p.nombre_prod = ?); -- SANTIAGO

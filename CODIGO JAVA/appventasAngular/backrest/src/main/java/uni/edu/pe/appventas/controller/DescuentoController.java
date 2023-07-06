@@ -5,20 +5,17 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import uni.edu.pe.appventas.dto.rest.RespuestaProducto;
-import uni.edu.pe.appventas.service.ProductoService;
+import uni.edu.pe.appventas.dto.rest.RespuestaDescuento;
+import uni.edu.pe.appventas.service.DescuentoService;
 
 @RestController
 @CrossOrigin(origins = {"*"})
-public class ProductoController {
+public class DescuentoController {
     @Autowired
-    private ProductoService mostrarProductoService;
+    private DescuentoService mostrarDescuentoService;
 
-    @RequestMapping (value = "/mostrarproducto", method = RequestMethod.GET)
-    public RespuestaProducto mostrarproducto(){
-        return new RespuestaProducto (mostrarProductoService.mostrarproducto());
+    @RequestMapping(value = "/mostrardescuento", method = RequestMethod.GET)
+    public RespuestaDescuento mostrardescuento() {
+        return new RespuestaDescuento(mostrarDescuentoService.mostrardescuento());
     }
-
-
-
 }
