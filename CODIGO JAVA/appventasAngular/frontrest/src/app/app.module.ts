@@ -7,11 +7,13 @@ import { CatalogoComponent } from './catalogo/catalogo.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {CommonModule} from "@angular/common";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CatalogoComponent
+    CatalogoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
